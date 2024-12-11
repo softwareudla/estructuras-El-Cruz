@@ -27,7 +27,7 @@ int menu() {
 
 void registrarLibros(struct Libro libros[], int *n) {
     printf("Registro de libro #%d\n", *n + 1);
-    printf("ID: ");
+    printf("ID (único): ");
     scanf("%d", &libros[*n].id);
 
     for (int i = 0; i < *n; i++) {
@@ -41,13 +41,20 @@ void registrarLibros(struct Libro libros[], int *n) {
     scanf(" %[^\n]", libros[*n].titulo);
     printf("Autor: ");
     scanf(" %[^\n]", libros[*n].autor);
-    printf("Año de publicación: ");
-    scanf("%d", &libros[*n].anio_publicacion);
+
+    do {
+        printf("Año de publicación (0 - 2024): ");
+        scanf("%d", &libros[*n].anio_publicacion);
+        if (libros[*n].anio_publicacion < 0 || libros[*n].anio_publicacion > 2024) {
+            printf("Error: El año de publicación debe estar entre 0 y 2024. Intente de nuevo.\n");
+        }
+    } while (libros[*n].anio_publicacion < 0 || libros[*n].anio_publicacion > 2024);
 
     strcpy(libros[*n].estado, "Disponible");
     (*n)++;
     printf("Libro registrado exitosamente.\n");
 }
+
 
 void mostrarLibros(struct Libro libros[], int n) {
     if (n == 0) {

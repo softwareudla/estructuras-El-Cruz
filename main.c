@@ -29,7 +29,7 @@ int main() {
             case 4: {
                 char titulo[100];
                 printf("Ingrese el título del libro a buscar: ");
-                scanf(" %[^\n]", titulo); // Lee cadenas con espacios
+                scanf(" %[^\n]", titulo);
                 buscarLibroTitulo(libros, n, titulo);
                 break;
             }

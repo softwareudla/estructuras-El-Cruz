@@ -27,7 +27,7 @@ int menu() {
 
 void registrarLibros(struct Libro libros[], int *n) {
     printf("Registro de libro #%d\n", *n + 1);
-    printf("ID (único): ");
+    printf("ID: ");
     scanf("%d", &libros[*n].id);
 
     for (int i = 0; i < *n; i++) {
